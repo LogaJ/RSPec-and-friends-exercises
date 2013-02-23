@@ -1,3 +1,4 @@
+module Codebreaker
   class Marker
     def initialize(secret, guess)
       @secret, @guess = secret, guess
@@ -23,4 +24,4 @@
       @secret.include?(@guess[index]) && !exact_match?(index)
     end
   end
-
+end

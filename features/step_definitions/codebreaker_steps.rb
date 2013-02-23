@@ -32,3 +32,7 @@ end
 Then /^I should see "(.*?)"$/ do |message|
 	output.messages.should include(message)
 end
+
+Then /^the mark should be "(.*?)"$/ do |mark|
+	output.messages.should include(mark)
+end

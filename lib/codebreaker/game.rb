@@ -11,12 +11,18 @@ module Codebreaker
 		end
 
 		def guess(guess)
-			if @secret.include?(guess[0])
+			if exact_match?(guess, 0)
+				mark = '+'
+			elsif @secret.include? guess[0]
 				mark = '-'
 			else
 				mark = ''
 			end
 			@output.puts(mark)
+		end
+
+		def exact_match?(guess, index)
+			guess[index] == @secret[index]
 		end
 	end
 end

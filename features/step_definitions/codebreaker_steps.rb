@@ -21,8 +21,12 @@ Given /^the secret code is "(.*?)"$/ do |secret|
 end
 
 When /^I start a new game$/ do
-	game = Codebreaker::Game.new(output)
-	game.start('1234')
+	@game = Codebreaker::Game.new(output)
+	@game.start('1234')
+end
+
+When /^I guess "(.*?)"$/ do |guess|
+	@game.guess(guess)
 end
 
 Then /^I should see "(.*?)"$/ do |message|

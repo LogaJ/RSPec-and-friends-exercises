@@ -11,13 +11,7 @@ module Codebreaker
     end
 
     def guess(guess)
-      number_match_count = 0
-      (0..3).each do |index|
-        if number_match?(guess, index)
-          number_match_count += 1
-        end
-      end
-      @output.puts '+'*exact_matches_count(guess) + '-'*number_match_count
+      @output.puts '+'*exact_matches_count(guess) + '-'*number_match_count(guess)
     end
 
     def exact_matches_count(guess)
@@ -28,6 +22,16 @@ module Codebreaker
         end
       end
       exact_matches_count
+    end
+
+    def number_match_count(guess)
+      number_match_count = 0
+      (0..3).each do |index|
+        if number_match?(guess, index)
+          number_match_count += 1
+        end
+      end
+      number_match_count
     end
 
     def exact_match?(guess, index)
